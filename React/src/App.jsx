@@ -94,7 +94,6 @@ const openNotification = (type, message) => {
         duration: messageDuration,
         style: messageStyle,
       });
-      console.log(`It's working!!`);
       break;
   }
 };

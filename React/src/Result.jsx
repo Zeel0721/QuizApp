@@ -15,7 +15,10 @@ export default function Result({ user, result, setUser, setCompleted }) {
           firstname,
           lastname,
           email,
-          result: `${result.result} / ${result.max}`,
+          result: {
+            score: result.result,
+            max: result.max,
+          },
         })
         .then(() => openNotification(NOTIFICATION_SUCCESS, "User Added"))
         .catch((error) => openNotification(NOTIFICATION_ERROR, error.message));
