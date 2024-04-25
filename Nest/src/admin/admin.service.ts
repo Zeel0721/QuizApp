@@ -9,7 +9,7 @@ export class AdminService{
     constructor(@InjectModel(Question.name) private questionModel: Model<Question>){}
 
     async getQuestions(){
-        return await this.questionModel.find()
+        return this.questionModel.find()
     }
     async setQuestion( id: string, updateQuestion: QuestionDto ){
         await this.questionModel.replaceOne({_id: id}, updateQuestion)
@@ -22,6 +22,6 @@ export class AdminService{
     }
     async deleteQuestion( id: string){
         await this.questionModel.deleteOne({ _id:id })
-        return await this.questionModel.find()
+        return this.questionModel.find()
     }
 }

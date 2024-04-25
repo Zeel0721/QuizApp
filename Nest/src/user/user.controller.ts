@@ -6,15 +6,19 @@ import { UserDto } from "./dto/user.dto";
 export class UserController{
     constructor(private userService: UserService){}
     @Post('adduser')
-    addUser(@Body() createUserDto: UserDto){
+    async addUser(@Body() createUserDto: UserDto){
         return this.userService.addUser(createUserDto)
     }
-    @Get('getuser')
-    getUser(){
-        return this.userService.getUser()
+    @Get('getuser/:page')
+    async getUser(@Param('page') page: string){
+        return this.userService.getUser(page)
     }
     @Delete('deleteuser/:id')
-    deleteUser(@Param('id') id: string){
+    async deleteUser(@Param('id') id: string){
         return this.userService.deleteUser(id)
+    }
+    @Get('getusercount')
+    async getUserCount(){
+        return this.userService.getUserCount()
     }
 }

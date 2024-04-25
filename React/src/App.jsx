@@ -55,22 +55,32 @@ export default function App() {
     }
   }
   const openNotification = ( type, message ) => {
+    const messageStyle = {fontSize: 'large', fontWeight: 'bold', color: 'red'}
+    const messageDuration = 3
     switch(type){
       case "Success":
         notification.success({
           message: type,
           description: message,
-          duration: 3,
-          style: {fontSize: 'large', fontWeight: 'bold', color: 'red'},
+          duration: messageDuration,
+          style: messageStyle,
         });
         return
       case "Error":
         notification.error({
           message: type,
           description: message,
-          duration: 3,
-          style: {fontSize: 'large', fontWeight: 'bold', color: 'red'},
+          duration: messageDuration,
+          style: messageStyle,
         });
+        return
+      case "Invalid Data":
+        notification.warning({
+          message: type,
+          description: message,
+          duration: messageDuration,
+          style: messageStyle,
+        })
         return
     }
   }

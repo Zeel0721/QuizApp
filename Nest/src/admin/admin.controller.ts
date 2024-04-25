@@ -7,18 +7,18 @@ export class AdminController {
     constructor(private adminService: AdminService){}
     @Get('getquestions')
     async getQuestions(){
-        return await this.adminService.getQuestions()
+        return this.adminService.getQuestions()
     }
     @Put('setquestion/:id')
     async setQuestion(@Param('id') id: string,@Body() updateQuestion: QuestionDto){
-        return await this.adminService.setQuestion(id, updateQuestion)
+        return this.adminService.setQuestion(id, updateQuestion)
     }
     @Post('addquestion')
     async addQuestion(@Body() createQuestionDto: QuestionDto){
-        return await this.adminService.addQuestion(createQuestionDto)
+        return this.adminService.addQuestion(createQuestionDto)
     }
     @Delete('deletequestion/:id')
     async deleteQuestion(@Param('id') id: string){
-        return await this.adminService.deleteQuestion(id)
+        return this.adminService.deleteQuestion(id)
     }
 }

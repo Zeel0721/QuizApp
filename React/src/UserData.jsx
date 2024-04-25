@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { ConfigProvider, Table } from 'antd'
+import { ConfigProvider, Pagination, Table } from 'antd'
 import './data.css'
 import { useQuestion } from './App'
 
@@ -35,13 +35,21 @@ const columns = [
 ]
 
   const [ userData, setUserData ] = useState([])
+  const [ userEntry, setUserEntry ] = useState(0)
   useEffect(() => {
     (async () => {
-      await axios.get(`http://localhost:3000/user/getuser`)
-        .then(values => setUserData(values.data))
-        .catch(error => openNotification("Error",error.message))
+      await callUser()
+      await axios.get('http://localhost:3000/user/getusercount')
+        .then(value => setUserEntry(value.data))
+        .catch(() => openNotification("Error",'No User found'))
     })()
   },[])
+
+  const callUser = async (currentPage) => {
+    await axios.get(`http://localhost:3000/user/getuser/${currentPage}`)
+      .then(values => setUserData(values.data))
+      .catch(error => openNotification("Error",error.message))
+  }
 
   const deleteUser = (record) => {
     (async () => {
@@ -69,14 +77,17 @@ const columns = [
       <div id="result-container">
         <Table 
           id='result-item' 
+          rowKey='_id'
           columns={columns} 
           dataSource={userData} 
           pagination={{
             className: 'page',
             position: ['bottomCenter'],
             pageSize: 4,
+            total: userEntry,
+            onChange: (page) => callUser(page)
           }}
-          footer={() => <span className='footer'>Total Records: {userData.length}</span>}
+          footer={() => <span className='footer'>Total Records: {userEntry}</span>}
         />
       </div>
     </ConfigProvider>

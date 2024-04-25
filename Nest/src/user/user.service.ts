@@ -10,13 +10,17 @@ export class UserService{
     async addUser(createUserDto: UserDto){
         const newUser = new this.userModel(createUserDto)
         await newUser.save()
-        return await this.userModel.find()
+        return this.userModel.find()
     }
-    async getUser(){
-        return await this.userModel.find()
+    async getUser(page: string){
+        const pageId = parseInt(page)-1
+        return this.userModel.find().skip(pageId*4).limit(4)
     }
     async deleteUser(id: string){
         await this.userModel.deleteOne({ _id: id })
-        return await this.userModel.find()
+        return this.userModel.find()
+    }
+    async getUserCount(){
+        return this.userModel.countDocuments()
     }
 }

@@ -8,8 +8,8 @@ const { TextArea } = Input
 export default function EditForm({ action, questions, idModal, setModal, value, setOrder, order }) {
     const { setQuestions, openNotification } = useQuestion()
     const submitEdit = (values) => {
+        const {question, optionOne, optionTwo, optionThree, optionFour, answer, isRequired, isDisabled} = values
         if(questions?._id){
-            const {question, optionOne, optionTwo, optionThree, optionFour, answer, isRequired, isDisabled} = values
             axios.put(`http://localhost:3000/admin/setquestion/${questions._id}`,{
                 question,
                 optionOne,
@@ -30,7 +30,6 @@ export default function EditForm({ action, questions, idModal, setModal, value, 
             })
         }
         else{
-            const {question, optionOne, optionTwo, optionThree, optionFour, answer, isRequired, isDisabled} = values
             axios.post(`http://localhost:3000/admin/addquestion/`,{
                 question,
                 optionOne,
@@ -44,6 +43,7 @@ export default function EditForm({ action, questions, idModal, setModal, value, 
             .then(value => {
                 openNotification("Success","Question Added")
                 setQuestions(value.data)
+                closeModal()
             })
             .catch((error) => {
                 openNotification("Error",error.response.data.message)
