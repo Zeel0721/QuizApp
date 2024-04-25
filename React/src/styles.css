@@ -1,0 +1,74 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #1d1e22;
+    --secondary-color: #bccbde;
+
+}
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+body 
+{
+    color: rgb(0, 0, 0);
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(255, 255, 255)
+      )
+    rgb(214, 219, 220);
+}
+.header{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: var(--primary-color);
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.header > a{
+    margin-left: 20px;
+    padding: 15px 15px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    transition: 200ms;
+}
+.header > a:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.theme-container{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-inline: 20px;
+}
+#theme{
+    cursor: pointer;
+}
+.primary-btn{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border: none !important;
+}
+.primary-btn:hover{
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+    box-shadow: 0 0 8px 0 var(--secondary-color);
+}
+.primary-btn:active{
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+.primary-btn:focus-visible{
+    outline: none !important;
+}

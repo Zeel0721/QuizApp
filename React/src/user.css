@@ -1,0 +1,106 @@
+#quiz-form,#result-container{
+    margin-top: 50px;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 8px 0 black;
+    border-radius: 20px;
+    height: 90vh;
+    width: 75vw;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#quiz-form:last-child{
+    padding-bottom: 20px;
+}
+.question-container{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    width: 75vw;
+    padding-left: 35px;
+    padding-top: 20px;
+}
+#quiz-form label{
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+.question-item{
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}
+.options-container{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,560px);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.option-text{
+    width: 560px;
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+#add-btn{
+    width: 200px;
+}
+.quiz-control{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#prev{
+    transition: 0s;
+}
+.left-btn{
+    margin-left: 20px;
+}
+.right-btn{
+    margin-right: 20px;
+}
+#result{
+    width: 450px;
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+.result-container{
+    width: 550px;
+    height: 325px;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 8px 0 black;
+}
+.result-value{
+    display: block;
+}
+.edit-btn{
+    position: absolute;
+    height: 38px;
+}
+.modal-container{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.modal-input{
+    width: 1000px;
+}
+.login-from{
+    background-color: var(--primary-color);
+    padding: 20px 75px;
+    border-radius: 20px;
+}
+.edit-form-control{
+    display: flex;
+    justify-content: space-between;
+}

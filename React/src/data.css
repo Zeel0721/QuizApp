@@ -1,0 +1,47 @@
+#result-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#result-item{
+    margin-inline: 10px;
+    color: var(--primary-color);
+}
+#result-item > *{
+    background-color: var(--secondary-color);
+}
+#result-item th{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+#result-item th::before{
+    background-color: var(--primary-color);
+}
+#result-item td{
+    border-color: var(--primary-color);
+}
+#delete{
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: 200ms ease-in-out;
+}
+#delete:hover{
+    opacity: 0.6;
+}
+.page > *{
+    background-color: var(--secondary-color);
+    border: none !important;
+    overflow: hidden;
+}
+.page a{
+    height: 100%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color) !important;
+}
+.page svg{
+    fill: var(--primary-color);
+}
+.footer{
+    font-weight: bold;
+}
