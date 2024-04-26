@@ -1,4 +1,4 @@
-import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Question } from 'src/schemas/questions.schema';
@@ -18,7 +18,10 @@ export class AdminService {
       await this.questionModel.replaceOne({ _id: id }, updateQuestion);
       return this.questionModel.find();
     } catch (error) {
-      throw new HttpException('Question must be unique', 400);
+      throw new HttpException(
+        'Question must be unique',
+        HttpStatus.BAD_REQUEST,
+      );
     }
   }
   async addQuestion(createQuestionDto: QuestionDto) {
@@ -27,7 +30,10 @@ export class AdminService {
       await newQuestion.save();
       return this.questionModel.find();
     } catch (error) {
-      throw new HttpException('Question must be unique', 400);
+      throw new HttpException(
+        'Question must be unique',
+        HttpStatus.BAD_REQUEST,
+      );
     }
   }
   async deleteQuestion(id: string) {

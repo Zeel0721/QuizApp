@@ -12,11 +12,10 @@ export class UserService {
     await newUser.save();
     return this.userModel.find();
   }
-  async getUser(page: string) {
-    const pageId = parseInt(page) - 1;
+  async getUser(page: number) {
     return this.userModel
       .find()
-      .skip(pageId * 4)
+      .skip((page - 1) * 4)
       .limit(4);
   }
   async deleteUser(id: string) {
@@ -26,13 +25,12 @@ export class UserService {
   async getUserCount() {
     return this.userModel.countDocuments();
   }
-  async sortUser(field: string, order: string, page: string) {
+  async sortUser(field: string, order: string, page: number) {
     const sortOrder = order === 'ascend' ? 1 : -1;
-    const pageOrder = parseInt(page) - 1;
     return this.userModel
       .find()
       .sort({ [field]: sortOrder })
-      .skip(pageOrder * 4)
+      .skip((page - 1) * 4)
       .limit(4);
   }
 }

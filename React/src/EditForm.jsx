@@ -70,7 +70,10 @@ export default function EditForm({
           closeModal();
         })
         .catch((error) => {
-          openNotification(NOTIFICATION_WARNING, error.response.data.message);
+          openNotification(
+            NOTIFICATION_WARNING,
+            error.response.data.message[0]
+          );
           closeModal();
         });
     }

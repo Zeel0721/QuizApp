@@ -1,28 +1,28 @@
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class QuestionDto {
-  @IsNotEmpty({ message: 'Question cannot be empty' })
   @IsString({ message: 'Question must be String' })
+  @IsNotEmpty({ message: 'Question cannot be empty' })
   question: string;
 
-  @IsNotEmpty({ message: 'Option A cannot be empty' })
   @IsString({ message: 'Option A must be String' })
+  @IsNotEmpty({ message: 'Option A cannot be empty' })
   optionOne: string;
 
-  @IsNotEmpty({ message: 'Option B cannot be empty' })
   @IsString({ message: 'Option B must be String' })
+  @IsNotEmpty({ message: 'Option B cannot be empty' })
   optionTwo: string;
 
-  @IsNotEmpty({ message: 'Option C cannot be empty' })
   @IsString({ message: 'Option C must be String' })
+  @IsNotEmpty({ message: 'Option C cannot be empty' })
   optionThree?: string;
 
-  @IsNotEmpty({ message: 'Option D cannot be empty' })
   @IsString({ message: 'Option D must be String' })
+  @IsNotEmpty({ message: 'Option D cannot be empty' })
   optionFour?: string;
 
-  @IsNotEmpty({ message: 'Answer cannot be empty' })
   @IsNumber()
+  @IsNotEmpty({ message: 'Answer cannot be empty' })
   answer: string;
 
   @IsBoolean()
