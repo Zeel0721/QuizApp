@@ -18,3 +18,36 @@
     border: none;
     box-shadow: 0 0 8px 0 var(--secondary-color);
 }
+.side-bar{
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    margin-top: 54px;
+    background-color: var(--primary-color);
+    transform-origin: left;
+    animation: 200ms ease-in-out forwards slideright;
+}
+.side-bar-menu{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: var(--secondary-color);
+    padding: 15px 10px;
+}
+.side-bar-menu:hover{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.side-bar-item{
+    display: block;
+}
+@keyframes slideright{
+    0%{
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}

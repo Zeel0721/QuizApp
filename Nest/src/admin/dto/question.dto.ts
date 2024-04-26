@@ -23,11 +23,9 @@ export class QuestionDto {
 
   @IsNumber()
   @IsNotEmpty({ message: 'Answer cannot be empty' })
-  answer: string;
+  answer: number;
 
-  @IsBoolean()
   isRequired?: boolean;
 
-  @IsBoolean()
   isDisabled?: boolean;
 }

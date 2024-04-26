@@ -102,16 +102,11 @@ export default function App() {
   const [questions, setQuestions] = useState([]);
   const [answer, setAnswer] = useState({});
   const [authenticate, setAuthenticate] = useState(false);
-  const [adminComp, setAdminComp] = useState("Edit");
   const root = document.querySelector(":root");
   const primaryColor =
     getComputedStyle(root).getPropertyValue("--primary-color");
   const secondaryColor =
     getComputedStyle(root).getPropertyValue("--secondary-color");
-  const changeAdmin = (e) => {
-    e.preventDefault();
-    setAdminComp(e.target.innerText);
-  };
   const changeTheme = (e) => {
     switch (e.key) {
       case PURPLE_PINK:
@@ -166,16 +161,6 @@ export default function App() {
               Theme
             </a>
           </Dropdown>
-          {authenticate ? (
-            <a href="" id="edit" onClick={changeAdmin}>
-              Edit
-            </a>
-          ) : null}
-          {authenticate ? (
-            <a href="" id="result-grid" onClick={changeAdmin}>
-              Result
-            </a>
-          ) : null}
         </header>
         <div className="app">
           <Routes>
@@ -189,7 +174,7 @@ export default function App() {
                 authenticate === false ? (
                   <Login key="login" setAuthenticate={setAuthenticate} />
                 ) : (
-                  <Admin key="admin" adminComp={adminComp} />
+                  <Admin key="admin" />
                 )
               }
             ></Route>
